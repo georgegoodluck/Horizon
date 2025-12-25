@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 const config = {
   darkMode: ["class"],
@@ -19,6 +20,13 @@ const config = {
       },
     },
     extend: {
+      // ⬇️ ADDED THIS: Fixes the "text-16" error
+      fontSize: {
+        "10": "10px",
+        "12": "12px",
+        "14": "14px",
+        "16": "16px",
+      },
       colors: {
         fill: {
           1: "rgba(255, 255, 255, 0.10)",
@@ -103,7 +111,8 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  // ⬇️ CHANGED THIS: Uses the imported variable instead of require()
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
 
 export default config;
